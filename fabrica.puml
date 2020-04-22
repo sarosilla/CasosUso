@@ -1,0 +1,31 @@
+@startuml
+:Socios:-Cooperativa
+:Clientes:
+rectangle Cooperativa{
+(Fábrica)-d-(Tienda Fábrica)
+(Fábrica)-d-(Aplicación)
+(Aplicación)-u-(Catálogo):include
+(Aplicación)-u-(Pedidos):include
+(Aplicación)-u-(Precios):include
+(Fábrica)-d-(Producto semanal)
+(Beneficios)
+(Tienda Fábrica)-d-(Beneficios)
+(Pedidos)-d-(Beneficios)
+:Clientes:-(Catálogo)
+:Clientes:-d-(Pedidos)
+:Clientes:-(Precios):extend
+(Beneficios)-:Socios: :extend
+:Socios:-d-(Producto semanal)
+}
+(Tienda)-u-:Socios:
+(Producto semanal)-u-(Lotes) :extend
+(Producto semanal)-d-(Tienda)
+(Lotes)-d-(Tienda)
+(Tienda)-(menor precio)
+(menor precio)-(Precios)
+(Productos)-(Tienda)
+:Socios:-(Distribución)
+(Distribución)-:Clientes:
+:Socios:-(Venta Beneficios)
+(Venta Beneficios)-:Socios:
+@enduml
