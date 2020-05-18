@@ -1,31 +1,20 @@
 @startuml
-:Socios:-Cooperativa
-:Clientes:
-rectangle Cooperativa{
-(Fábrica)-d-(Tienda Fábrica)
-(Fábrica)-d-(Aplicación)
-(Aplicación)-u-(Catálogo):include
-(Aplicación)-u-(Pedidos):include
-(Aplicación)-u-(Precios):include
-(Fábrica)-d-(Producto semanal)
+:Socios:
+rectangle Fábrica{
+(Producto)
+(Venta)<..(App) :extends
 (Beneficios)
-(Tienda Fábrica)-d-(Beneficios)
-(Pedidos)-d-(Beneficios)
-:Clientes:-(Catálogo)
-:Clientes:-d-(Pedidos)
-:Clientes:-(Precios):extend
-(Beneficios)-:Socios: :extend
-:Socios:-d-(Producto semanal)
+(App)
+(Tienda Física) ..>(Venta) :extends
+(Socios) ..>(Venta) :extends
+(Tienda Socio)..>(Venta) :extends
+(Comprar Producto)
+(Producto)
 }
-(Tienda)-u-:Socios:
-(Producto semanal)-u-(Lotes) :extend
-(Producto semanal)-d-(Tienda)
-(Lotes)-d-(Tienda)
-(Tienda)-(menor precio)
-(menor precio)-(Precios)
-(Productos)-(Tienda)
-:Socios:-(Distribución)
-(Distribución)-:Clientes:
-:Socios:-(Venta Beneficios)
-(Venta Beneficios)-:Socios:
+(Producto) -> :Socios:
+:Cliente: -(App)
+:Cliente: -(Comprar Producto)
+(Venta) <- (Beneficios) :include
+(Comprar Producto) -> (Venta)
+:Socios: ->(Beneficios)
 @enduml
