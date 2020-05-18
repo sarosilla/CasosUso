@@ -2,7 +2,7 @@
 
 ## [1](fabrica.puml) Caso de uso fábrica
 
-![Fabrica](https://github.com/sarosilla/CasosUso/blob/master/moodle1.png)
+![Fabrica](https://github.com/sarosilla/CasosUso/blob/master/fabrica1.png)
 
 ## [2](moodle.puml) Caso de uso moodle 
 
