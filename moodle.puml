@@ -2,40 +2,20 @@
 :Alumno:
 :Profesor:
 rectangle Moodle{
-:Alumno: -down- (Curso)
-(Curso)
-(Alumnos)
-(Tareas)
-(Matriculación)
-(Calificaciones)
-(Crear nuevo curso)
-(Contenidos)
-(Ver) -up- (Acciones)
-:Profesor: -up- (Ver)
-:Profesor: -left- (Gestión de grupos)
-:Profesor: -down- (Gestión de grupos)
-(Gestión de grupos) -d- (Alumnos)
-(Gestión de grupos) -down- (Matriculación)
-(Alumnos) .down.>(Gestión de grupos) :extends
-:Alumno: -down- (Acciones)
-:Alumno: -right-(Entregar tareas)
-(Entregar tareas) -right- (Tareas)
-:Alumno: -up- (Ver calificaciones)
-(Ver calificaciones) .up.>(Curso)
-(Curso) .down.>(Contenidos) :include
-(Contenidos) - (Ver contenidos)
-:Alumno: -left- (Ver contenidos)
-(Ver calificaciones) - Calificaciones
-:Profesor: -d- (Crear nuevo curso)
-:Profesor: -right- (Gestión de temas)
-(Gestión de temas) - (Proponer tareas)
-(Proponer tareas) - (Tareas)
-(Tareas) .up.>(Curso)
-(Ver contenidos) .>(Curso)
-(Gestión de temas) -up- (Subir contenido)
-(Subir contenido) .up.> (Contenidos)
-:Profesor: -left- (Evalúa)
-(Evalúa)- (Calificaciones)
-:Alumno: -right- (Alumnos) 
+(Creacion curso)
+(Grupos)
+(Gestión temas)<.down. (Contenidos) :extend
+(Gestión temas) <.down.(Tareas) :extend
+(Gestión calificaciones)
+:Profesor: ->(Creacion curso)
+:Profesor: -down->(Gestión temas)
+:Profesor: -down-> (Grupos)
+:Profesor: ->(Gestión calificaciones)
+(Grupos) <.down. (Alumnos) :extend
+(Grupos) <.down. (Matriculación) :extend
+:Alumno: -up-> (Acciones realizadas)
+(Acciones realizadas) <.up. (Contenidos)
+(Acciones realizadas) <.up. (Tareas)
+:Profesor: -> (Acciones realizadas)
 }
 @enduml
